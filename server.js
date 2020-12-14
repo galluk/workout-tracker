@@ -18,10 +18,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// const PWD = 'Loid2020';
 const databaseUrl = `mongodb+srv://mongoLG:${encodeURIComponent(process.env.DB_PASS)}@cluster0.xoyrx.mongodb.net/workout_db`;
 
-mongoose.connect(process.env.MONGODB_URI || databaseUrl, { useNewUrlParser: true });
+mongoose.connect(
+  process.env.MONGODB_URI || databaseUrl, 
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 
 // get all the workouts
 app.get("/api/workouts", (req, res) => {
