@@ -1,10 +1,14 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/workout", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+// mongoose.connect("mongodb://localhost/workout_db", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false
+// });
+const PWD = 'Loid2020';
+const databaseUrl = `mongodb+srv://mongoLG:${encodeURIComponent(PWD)}@cluster0.xoyrx.mongodb.net/workout_db`;
+
+mongoose.connect(process.env.MONGODB_URI || databaseUrl, { useNewUrlParser: true, useFindAndModify: false });
 
 let workoutSeed = [
   {

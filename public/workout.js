@@ -45,6 +45,7 @@ function formatDate(date) {
 }
 
 function renderWorkoutSummary(summary) {
+  console.log(JSON.stringify(summary));
   const container = document.querySelector(".workout-stats");
 
   const workoutKeyMap = {
