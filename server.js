@@ -30,6 +30,10 @@ mongoose.connect(
   }
 );
 
+app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+});
+
 // get all the workouts
 app.get("/api/workouts", (req, res) => {
   db.Workout.find()
